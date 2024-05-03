@@ -1,0 +1,110 @@
+1. use pagination
+2. add async calls
+3. scaling API
+4. connection pooling
+5. create microservices
+6. caching
+7. compression of large response / reduce payload - upload and download
+8. request time out
+9. improve network
+10. filtering
+11. Prevent Under-Fetching and Over-Fetching
+
+
+
+Database Concurrency handling
+
+1. Need for concurrency :-
+
+   The isolation level commonly used in OLTP(Online Transactional Processing) is Read Committed Snapshot isolation with row versioning.
+
+   Isolation Phenomenon -
+
+   a. dirty read -     T1 update the record and kept uncommitted. T2 reads uncommitted record, T1 updated/committed/rollback later. T2 have initial changes
+                       even if T1 rollback uncommitted change. 
+   b. non-repeatable - T1 reads record, T2 updated same record and commit. T1 re-read got different result than previous
+   c. phantom -        T1 runs Query to get set of rows, it gets for ex. 5, T2 added some more rows matching to T1's search criteria. Again T1 run same query,
+                       but got differnt number of rows.
+   Isolation level -
+
+   a. read uncommitted - T2 can read record uncommitted by T1.
+   b. read committed   - Makes sure what T2 is reading is committed. Uncommitted reads will not happen.
+   c. repeatable read  - holds read lock on all read referenced rows and similarly holds write lock of write referene rows.
+   d. serialization anomaly - if there are two transactions T1 and T2, then there exists no way of committing them that is consistent with
+                              Committing T1 then T2 OR
+                              Committing T2 then T1
+                              They appears to be executing serially. Not good in concurrent transactions for delete/update same row.
+   e. Snapshot/Version Isolation - In this version for each row and unique transaction sequence number is maintain in tempdb. Next transaction works with version 
+                           number and most recent transaction seq. number. New version fter transaction begun is ignore.
+                           Snapshot indicates all queries in transaction should see same version number for each record at the beginning of transaction.
+ 
+2. Manage Concurrency -
+   1. 2PL - 2 phase lock - 1. ask for all required lock, 2. Acquire locks, do transaction, 3. release all locks once transaction completed. No new locks will 
+                           acquire.
+   2. Shared/Exclusive lock - shared lock - for read, we can apply shared lock for multiple read transctions, if update request comes, shared lock will 
+                                            prevent till the read operation.
+                              exclusive - this is lock in which both read and write can happen simultaneously. 
+   3. Multi-Versoin Concurrency Control (MVCC) - instead of blocking. each SQL statement sees version of data irrespective of latest status. This prevent 
+                                                 viewing of inconsistant data through concurrent transaction
+3. Optimistic/Pessimistic locking -
+   1. Optimistic - This is version based locking. Each row has a version update at every update operation. while operating check version, if matches while
+                   update Transaction saved, else abotr ane retry. Used when locking is not important
+   2. Pessimistic - In this different types of locking is applied as per the required like shared lock, exclusive locks etc. This is slower as it locks. 
+                    
+Index - it uses to search data from table faster. uses key value pair. key is search key and value is address of records associated with this key. 
+  1. Dense index- one key has one record index. more space, faster 
+  2. Sparse index- one key has collection of records. leass space, slower
+  3. cluster index - index based on primary key and sorted. To use anotehr key based index, need to remove existing index, create new. no additional table,
+                     sorted.
+  4. Non cluster - create another table with mapping.
+
+Rate limitor - decider how many requests can hit this URL. use to handle traffic and unnecessary hits.
+   API - Bucket4J(Token-base), @throttling in Spring boot, RateLimitter class of Guava Library(create, acquire), Resiliance4J
+   Types - rate limiter, time limiter, bulkhead
+
+
+Query Optimization -
+ 1. use columns instead of * in select
+ 2. use where instead of Having
+ 3. use Joins instead of where in queries with multiple tables.
+ 4. use exists function for subqueries
+ 5. use wildcard at the end
+ 6. Apply indexing
+ 7. use UnionAll instead of Union as it returns unique result in Union.
+ 8. avoid Distinct. Use multiple columns to avoid duplicacy or we can do it in Java.
+	
+Java code optimization -
+ 1. avoid long method
+ 2. use limited if----else. instead use swich
+ 3. limited logs
+ 4. avoid String for concatenatination
+ 5. recurring use of method.
+ 6. use Primitives instead of Objects
+ 7. Proper use of design patterns, SOLID
+ 8. Use of cache
+ 
+Fetch data from Parent Table without child table -
+
+1. select p.id from parent p where Not Exists(select 1 from child c where c.id = p.id)
+2. select p.id from parent p left join child c on p.id = c.id where c.id = null
+
+Transaction Management in Spring boot
+
+Propogation -
+ 1. required - required a transaction either new or existing
+ 2. supports - not care if transaction is open or not it will work
+ 3. mandatory - not open transaction but need to be already open
+ 4. require_new - will open new irrespective of already exist or not
+ 5. not_support - does not need transaction, even pause current_running transaction
+ 6. never - no need of transaction at all
+ 7. nested - works with multiple transactions - savepoint.
+
+
+
+
+
+                               
+
+
+
+

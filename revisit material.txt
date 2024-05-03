@@ -1,0 +1,62 @@
+Abstraction
+
+https security
+
+sonar code vulnerabilities
+
+garbage collection
+
+memory overflow on production
+
+Java Stream
+  streams creation
+  terminal functions
+  intermediate functions
+  null checks
+  map vs flat Map
+  parallel Stream
+  
+Java Concurrency
+  volatile
+  executor -> execute, submit
+  completable future
+  runnable/callable
+  Atomic
+  wait, notify, notifyAll
+  sync, async
+  Supplier/Consumer
+  deadlock
+  
+Spring boot
+
+benefits
+
+Spring Microservices
+  load balance
+  service discovery
+  design pattern
+  cloud
+  deployment
+
+Apache Spark
+
+Kafka
+
+AOP
+
+DB Queries
+
+JPA
+
+Unit testing
+
+design patterns 
+
+CI/CD
+
+Kubernates
+
+Docker
+
+Spring cloud
+

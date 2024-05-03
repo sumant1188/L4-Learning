@@ -1,0 +1,49 @@
+Java 8 - Partitioning By, Grouping By, Lambdas, Local variable type inference, Stateful/Stateless lambdas, Parallel/Sequential streams, Finite/Infinite streams
+
+1. Stream pipeline concepts, functional interfaces.
+2. Threads, Java Memory Model.
+3. Spring Boot internals, autoconfig internals.
+4. All Microservice design patterns, java enterprise design patterns.
+5. Challenges faced in the project and solutions proposed to overcome those challenges.
+
+/*
+Implement the function to convert a given string of any base (e.g. binary, octal, hexadecimal)
+into the Integer (decimal) without using library functions like Integer.parseInt() method.
+parseNumber("101",2) returns  5
+*/
+public int parseNumber(String str, int base) {
+    int result = 0;
+    return Integer.parseInt("102", 2);
+}
+
+https://kb.epam.com/display/GDOKB/Java+Interview+Questions
+https://kb.epam.com/display/GDOKB/PBS+-+Interview+Questions
+
+https://www.codekarle.com/
+
+1. Find a triplet that sum to a given value; Expected Time complexity <= )(n*2).
+2. Print that matrix in spiral manner(I was asked to write the algorithm only):
+Input: int[][] inputArr = {{1, 2, 3, 4}
+, {5, 6, 7, 8}
+, {9, 10, 11, 12}
+, {13, 14, 15, 16}};
+Output: 1,2,3,4,8,12,16,15,14,13,9,5,6,7,11,10
+3. Design Snakes & Ladders Game
+4. Why String class is Immutable in Java
+5. String Deduplication
+
+https://kb.epam.com/display/GDOKB/S&P-INCUBATION-Topics
+
+1. reactive streams in java
+2. How do parallel streams work internally
+3. types of functional interface. Java examples for Consumer & Supplier
+4. Why Stringjoiner is introduced if we already have StringBuilder.
+5. How would you exclude some beans to get created ?
+6. How can we specify multiple datasources in a springboot application?
+7. Purpose of bootstrap.yml file
+8. Springboot actuator. Endpoints?
+9. Cyclic dependency in spring? How to avoid?
+10.Transaction management in microservices?
+11. Difference b/w IOC & Dependency injection?
+12. New features of JAVA 8 & JAVA 11.
+

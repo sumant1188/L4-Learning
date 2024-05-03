@@ -1,0 +1,89 @@
+map.put(e1,1)
+
+map.put(e2,1)
+
+map.put(e3,3)
+
+e2.setName("A");
+
+map.get(e2);
+
+----------------------------------
+
+List<String> s = new ArrayList<>(5);
+----------------------------------
+void display(String s) {
+
+}
+
+void display(Object o) {
+
+}
+
+display(null);
+
+----------------------------------
+
+class Super {
+
+  protected String display(){
+  
+  }
+}
+
+class child extends Super {
+    ? String display() throws IOException{
+  
+  }
+
+}
+768 240
+----------------------------------
+Employee(params)
+
+Employee e = new Employee(id, name, address)
+
+Address a = e.getAddress();
+
+a.setCity("Pune");
+----------------------------------
+void process(List<Object> o) {
+
+}
+List<String> strings = new ArrayList<>();
+process(strings);
+----------------------------------
+
+["ACD","ABC",null,"XYZ","PQR","LMN"]
+
+session management
+security flow in oauth, 
+spring MVC flow
+transaction management in microservices
+is controller thread safe
+class name with same name and register
+difference between controller, service, reposirtory and bean
+qualifier annotation
+is REST stateless
+transactional annotation
+storing data using hibernate/JPA
+creating table in hibernate
+association emp/sal
+lazy initialization exception in hibernate
+sql query to fetch data using join
+
+- What points to consider when migrating from On-Premise to Microservices ?
+- Challenges while migrating DB from On-Premise to Cloud ?
+- Why Microservices ?
+- Diff between java.sql.Date and java.util.Date
+- How to sort HashMap by Values ?
+- Java 8 changes in Abstract Classes and Interface ?
+- Diff between Hibernate and Spring Data JPA?
+- How to define custom Query in JPA/Hibernate ?
+- How to map custom query response to object ?
+- Suppose we have multiple entities, and we have to get the data from db and for this we write custom query, then how we can map it to object?
+- What are annotation used in Sprig boot?
+- What is Transactional annotation in Spring?
+- In which layer to use @Transactional annotaion?
+- Levels of Propogation
+
